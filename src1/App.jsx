@@ -2,6 +2,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Home } from "./Pages/Home.jsx";
 import { About } from "./Pages/About.jsx";
 import { Product } from "./Pages/Products.jsx";
+import { Inventory } from "./Pages/Inventory.jsx";
 import { Layout } from "./Components/Layout.jsx";
 import { Product1 } from "./Pages/Product1.jsx";
 import { Product2 } from "./Pages/Product2.jsx";
@@ -13,10 +14,11 @@ export function App() {
   return (
     <div>
       <BrowserRouter>
-        <Layout /> 
+        <Layout />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
+          <Route path="/inventory" element={<Inventory />} />
 
           <Route element={<ProtectedRoutes />}>
             <Route path="/products" element={<Product />}>
@@ -25,7 +27,8 @@ export function App() {
               <Route path="product3" element={<Product3 />} />
             </Route>
           </Route>
-          <Route path="/login" element={<h2>Login</h2>} />
+
+          <Route path="/login" element={<h2 style={{ padding: "2rem", color: "var(--text-primary)" }}>Login</h2>} />
           <Route path="*" element={<PageNotFound />} />
         </Routes>
       </BrowserRouter>
